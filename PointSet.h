@@ -20,7 +20,7 @@ class PointSet {
   */
   PointSet(vector <pair <double, double>> ps) {
     number_of_points = ps.size();
-    for(auto c : ps) {
+    for(pair<double, double> c : ps) {
       points.push_back(Point (c));
     }
   }
@@ -73,10 +73,10 @@ class PointSet {
   * \return - Point instance of the point nearest to the given point
   */
   Point nearestPointByAngle(Point point, int direction) {
-    for(auto p : points) {
+    for(Point p : points) {
       if(p.coordinates != point.coordinates) {
         Point nearest = p;
-        for(auto q : points) {
+        for(Point q : points) {
           if(orientation(nearest, q, point) == direction) {
             nearest = q;
           }
@@ -127,7 +127,7 @@ class PointSet {
   Point getLeftmostPoint() {
     Point leftmost = points[0];
 
-    for(auto p : points) {
+    for(Point p : points) {
       if(
         p.coordinates.first < leftmost.coordinates.first
         or (
@@ -150,7 +150,7 @@ class PointSet {
   Point getRightmostPoint() {
     Point rightmost = points[0];
 
-    for(auto p : points) {
+    for(Point p : points) {
       if(
         p.coordinates.first > rightmost.coordinates.first
         or (
@@ -173,7 +173,7 @@ class PointSet {
   Point getBottommostPoint() {
     Point bottommost = points[0];
 
-    for(auto p : points) {
+    for(Point p : points) {
       if(
         p.coordinates.second < bottommost.coordinates.second
         or (
@@ -195,10 +195,10 @@ class PointSet {
   */
   Point getInteriorPoint() {
     Point first = points[0];
-    for(auto p : points) {
+    for(Point p : points) {
       if(first.coordinates != p.coordinates) {
         Point second = p;
-        for(auto q : points) {
+        for(Point q : points) {
           if(orientation(first, second, q) != 0) {
             Point third = q;
             double x = (

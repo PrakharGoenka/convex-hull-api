@@ -26,7 +26,7 @@ class QuickHull {
     findHullPoints(ps, l, r, -1, hull);/*!< Find hull points below the line l-r*/
 
     vector <Point> convex_hull;
-    for(auto p : hull) {
+    for(Point p : hull) {
       convex_hull.push_back(p);
     }
 

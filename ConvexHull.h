@@ -69,7 +69,7 @@ class ConvexHull {
   */
   static vector <pair <double, double>> getPointCoordinates(vector <Point> points) {
     vector <pair <double, double>> point_coordinates;
-    for(auto p : points) {
+    for(Point p : points) {
       point_coordinates.push_back(p.coordinates);
     }
     return point_coordinates;
